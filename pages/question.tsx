@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@/styles/Question.module.css";
-import { TriviaQuestionProps } from "./triviaQueston";
+import { TriviaQuestionProps } from "../types/triviaQueston";
 
 const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
   question,

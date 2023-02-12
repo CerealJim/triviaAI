@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TriviaQuestion from "./question";
 import styles from "@/styles/Form.module.css";
-import { TriviaQuestionProps } from "./triviaQueston";
+import { TriviaQuestionProps } from "../types/triviaQueston";
 
 interface OpenAIAPIResponse {
   data: string;
