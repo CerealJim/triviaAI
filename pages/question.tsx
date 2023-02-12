@@ -1,10 +1,6 @@
 import React from "react";
-
-interface TriviaQuestionProps {
-  question: string;
-  options: string[];
-  answer: string;
-}
+import styles from "@/styles/Question.module.css";
+import { TriviaQuestionProps } from "./triviaQueston";
 
 const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
   question,
@@ -13,7 +9,7 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
 }) => {
   return (
     <div>
-      <h3>{question}</h3>
+      <h2>{question}</h2>
       <ul>
         {options.map((option, index) => (
           <li key={index}>{option}</li>
