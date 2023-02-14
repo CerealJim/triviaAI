@@ -104,7 +104,7 @@ const TriviaForm: React.FC = () => {
       <div>
         {loading ? (
           <p>Loading...</p>
-        ) : (
+        ) : triviaQuestionProps.length > 0 ? (
           triviaQuestionProps.map(
             (questionData: TriviaQuestionProps, index: number) => (
               <TriviaQuestion
@@ -115,7 +115,7 @@ const TriviaForm: React.FC = () => {
               />
             )
           )
-        )}
+        ) : null}
       </div>
     </div>
   );
