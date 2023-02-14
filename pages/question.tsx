@@ -7,6 +7,7 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
   options,
   answer,
 }) => {
+  console.log(options, "question");
   return (
     <div>
       <h2>{question}</h2>

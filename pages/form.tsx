@@ -23,12 +23,6 @@ const TriviaForm: React.FC = () => {
   const [difficulty, setDifficulty] = useState("");
   const [topic, setTopic] = useState("");
 
-  // Question array that we push AI generated questions
-  const questions = [];
-  const question = "What is the capital of France?";
-  const options = ["Paris", "London", "Berlin", "Rome"];
-  const answer = "Paris";
-
   // API handler using user responses
   const handleClick = async () => {
     setLoading(true);
@@ -50,14 +44,14 @@ const TriviaForm: React.FC = () => {
     });
 
     const json = await result.json();
-    console.log(json);
+    // console.log(json);
 
     try {
       const chatGptAnswer = json.choices[0].text;
       const parsedTrivia: TriviaQuestionProps[] = JSON.parse(
         chatGptAnswer
       ) as TriviaQuestionProps[];
-      // console.log(parsedTrivia)
+      console.log(parsedTrivia);
       setTriviaQuestionProps(parsedTrivia);
     } catch (error) {
       console.error("error parsing chatgpt response");
@@ -110,7 +104,7 @@ const TriviaForm: React.FC = () => {
       <div>
         {loading ? (
           <p>Loading...</p>
-        ) : triviaQuestionProps.length > 0 ? (
+        ) : (
           triviaQuestionProps.map(
             (questionData: TriviaQuestionProps, index: number) => (
               <TriviaQuestion
@@ -121,8 +115,7 @@ const TriviaForm: React.FC = () => {
               />
             )
           )
-        ) : // <TriviaQuestion question={question} options={options} answer={answer} />
-        null}
+        )}
       </div>
     </div>
   );
