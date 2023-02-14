@@ -110,7 +110,7 @@ const TriviaForm: React.FC = () => {
               <TriviaQuestion
                 key={index}
                 question={questionData.question}
-                options={questionData.options}
+                options={questionData.options ? questionData.options : []}
                 answer={questionData.answer}
               />
             )
