@@ -67,7 +67,7 @@ const TriviaForm: React.FC = () => {
     setDifficulty(event.target.value);
   };
 
-  const handleTopicChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleTopicChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setTopic(event.target.value);
   };
 
@@ -88,14 +88,21 @@ const TriviaForm: React.FC = () => {
         <div className={styles.userInput}>
           <label>Topic:</label>
 
-          <select value={topic} onChange={handleTopicChange}>
+          {/* <select value={topic} onChange={handleTopicChange}>
             <option value="" disabled>
               Select Topic
             </option>
             <option value="geography">Geography</option>
             <option value="history">History</option>
             <option value="science">Science</option>
-          </select>
+          </select> */}
+          <input
+            type="text"
+            value={topic}
+            onChange={handleTopicChange}
+            placeholder="Enter a topic"
+            maxLength={20}
+          />
         </div>
         <button className={styles.userStart} onClick={handleClick}>
           Start
