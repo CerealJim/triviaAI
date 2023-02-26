@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import TriviaQuestion from "./question";
+import TriviaQuiz from "./quiz";
 import styles from "@/styles/Form.module.css";
-import { TriviaQuestionProps } from "../types/triviaQueston";
+import { TriviaQuizProps } from "../types/triviaQueston";
 
 interface OpenAIAPIResponse {
   data: string;
@@ -15,9 +15,7 @@ const TriviaForm: React.FC = () => {
     success: false,
   });
   const [loading, setLoading] = useState(false);
-  const [triviaQuestionProps, setTriviaQuestionProps] = useState<
-    TriviaQuestionProps[]
-  >([]);
+  const [triviaQuizProps, setTriviaQuizProps] = useState<TriviaQuizProps[]>([]);
 
   // State for difficulty and topic
   const [difficulty, setDifficulty] = useState("");
@@ -48,11 +46,11 @@ const TriviaForm: React.FC = () => {
 
     try {
       const chatGptAnswer = json.choices[0].text;
-      const parsedTrivia: TriviaQuestionProps[] = JSON.parse(
+      const parsedTrivia: TriviaQuizProps[] = JSON.parse(
         chatGptAnswer
-      ) as TriviaQuestionProps[];
+      ) as TriviaQuizProps[];
       console.log(parsedTrivia);
-      setTriviaQuestionProps(parsedTrivia);
+      setTriviaQuizProps(parsedTrivia);
     } catch (error) {
       console.error("error parsing chatgpt response");
     }
@@ -88,14 +86,6 @@ const TriviaForm: React.FC = () => {
         <div className={styles.userInput}>
           <label>Topic:</label>
 
-          {/* <select value={topic} onChange={handleTopicChange}>
-            <option value="" disabled>
-              Select Topic
-            </option>
-            <option value="geography">Geography</option>
-            <option value="history">History</option>
-            <option value="science">Science</option>
-          </select> */}
           <input
             type="text"
             value={topic}
@@ -111,18 +101,17 @@ const TriviaForm: React.FC = () => {
       <div>
         {loading ? (
           <p>Loading...</p>
-        ) : triviaQuestionProps.length > 0 ? (
-          triviaQuestionProps.map(
-            (questionData: TriviaQuestionProps, index: number) => (
-              <TriviaQuestion
-                key={index}
-                question={questionData.question}
-                options={questionData.options ? questionData.options : []}
-                answer={questionData.answer}
-              />
-            )
-          )
-        ) : null}
+        ) : triviaQuizProps.length > 0 ? (
+          <TriviaQuiz quizData={triviaQuizProps} />
+        ) : // triviaQuizProps.map((quizData: TriviaQuizProps, index: number) => (
+        // <TriviaQuiz
+        //   key={index}
+        //   question={quizData.question}
+        //   options={quizData.options ? quizData.options : []}
+        //   answer={quizData.answer}
+        // />
+        // ))
+        null}
       </div>
     </div>
   );
