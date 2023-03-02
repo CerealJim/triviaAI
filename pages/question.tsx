@@ -16,9 +16,8 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onOptionSelect(event.target.value);
     setSelectedOption(event.target.value);
-
-    onOptionSelect(selectedOption);
   };
 
   return (

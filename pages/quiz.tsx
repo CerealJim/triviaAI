@@ -8,15 +8,16 @@ interface TriviaDataProps {
 }
 
 const TriviaQuiz: React.FC<TriviaDataProps> = ({ quizData = [] }) => {
-  const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
+  const [selectedAnswers, setSelectedAnswers] = useState<string[]>(
+    Array(quizData.length)
+  );
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleAnswerSelect = (selectedUserOption: string, index: number) => {
-    // setSelectedAnswers([...selectedAnswers, selectedUserOption]);
-    const newSelectedAnswers = [...selectedAnswers];
-    newSelectedAnswers[index] = selectedUserOption;
+    const newSelectedAnswers = [...selectedAnswers]; //copy by value
+    newSelectedAnswers[index] = selectedUserOption; //using the index, replace the answer in the correct index slot
     setSelectedAnswers(newSelectedAnswers);
-    console.log(selectedAnswers, "selectedAnswers");
+    // console.log(newSelectedAnswers, "selectedAnswers");
   };
 
   const calculateScore = (): number => {
