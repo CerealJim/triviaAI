@@ -73,8 +73,13 @@ const TriviaForm: React.FC = () => {
     <div>
       <div className={styles.form}>
         <div className={styles.userInput}>
-          <label>Difficulty:</label>
-          <select value={difficulty} onChange={handleDifficultyChange}>
+          <label className={styles.label}>Difficulty:</label>
+          <select
+            value={difficulty}
+            onChange={handleDifficultyChange}
+            className={styles.select}
+            required // added required attribute
+          >
             <option value="" disabled>
               Select Difficulty
             </option>
@@ -84,7 +89,7 @@ const TriviaForm: React.FC = () => {
           </select>
         </div>
         <div className={styles.userInput}>
-          <label>Topic:</label>
+          <label className={styles.label}>Topic:</label>
 
           <input
             type="text"
@@ -92,6 +97,8 @@ const TriviaForm: React.FC = () => {
             onChange={handleTopicChange}
             placeholder="Enter a topic"
             maxLength={20}
+            className={styles.input}
+            required // added required attribute
           />
         </div>
         <button className={styles.userStart} onClick={handleClick}>

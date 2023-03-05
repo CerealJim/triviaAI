@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Trivia Fun!</title>
+        <title>AI Trivia Generator</title>
         <meta
           name="AI Trivia"
           content="Nextjs App - Trivia game Generated ChatGPT"
@@ -18,14 +18,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* background effect */}
-      <div className={styles.star}></div>
+      <div className={styles.stars}></div>
       <div className={styles.stars2}></div>
       <div className={styles.stars3}></div>
       <div className={styles.layout}>
         <header className={styles.header}></header>
         <main className={styles.main}>
           <div className={styles.content}>
-            <h1 className={styles.h1}>Trivia</h1>
+            <h1 className={styles.h1}>AI Trivia Generator</h1>
             <TriviaForm />
           </div>
         </main>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "@/styles/Question.module.css";
+import styles from "@/styles/Quiz.module.css";
 import TriviaQuestion from "./question";
 import { TriviaQuizData } from "../types/triviaQueston";
 
@@ -14,9 +14,11 @@ const TriviaQuiz: React.FC<TriviaDataProps> = ({ quizData = [] }) => {
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const handleAnswerSelect = (selectedUserOption: string, index: number) => {
+    setSubmitted(false);
     const newSelectedAnswers = [...selectedAnswers]; //copy by value
     newSelectedAnswers[index] = selectedUserOption; //using the index, replace the answer in the correct index slot
     setSelectedAnswers(newSelectedAnswers);
+
     // console.log(newSelectedAnswers, "selectedAnswers");
   };
 

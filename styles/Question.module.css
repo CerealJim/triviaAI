@@ -1,0 +1,54 @@
+.questionContainer {
+  margin-bottom: 2rem;
+}
+
+.question {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.optionsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.option:hover {
+  background-color: lightgray;
+  cursor: pointer;
+}
+
+.optionLetter {
+  margin-right: 5px;
+  font-weight: 700;
+}
+
+.selectedOption,
+.selectedOption:hover {
+  background-color: lightblue;
+}
+
+.customRadio {
+  appearance: none;
+  position: absolute;
+  border-radius: 0.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.customRadio:hover {
+  cursor: pointer;
+}

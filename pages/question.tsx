@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "@/styles/Question.module.css";
-import { TriviaQuizProps } from "../types/triviaQueston";
+// import { TriviaQuizProps } from "../types/triviaQueston";
 
 interface TriviaQuestionProps {
   question: string;
@@ -19,6 +19,7 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
     onOptionSelect(event.target.value);
     setSelectedOption(event.target.value);
   };
+  const optionLetter: string[] = ["a. ", "b. ", "c. ", "d. "];
 
   return (
     <div className={styles.questionContainer}>
@@ -31,6 +32,7 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
               selectedOption === option ? styles.selectedOption : ""
             }`}
           >
+            <span className={styles.optionLetter}>{optionLetter[index]}</span>
             <input
               type="radio"
               id={option}
@@ -38,8 +40,12 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
               value={option}
               checked={selectedOption === option}
               onChange={handleOptionChange}
+              // className={styles.input}
+              className={`${styles.customRadio}`}
             />
-            <label htmlFor={option}>{option}</label>
+            <label htmlFor={option} className={styles.label}>
+              {option}
+            </label>
           </div>
         ))}
       </form>

@@ -5,6 +5,7 @@
 .header,
 .footer {
   min-height: 10vh;
+  z-index: 100;
 }
 
 .main {
@@ -15,8 +16,6 @@
   margin: auto auto;
   z-index: 100;
 }
-.footer {
-}
 
 .content {
   display: flex;
@@ -24,8 +23,7 @@
   background-color: white;
   border-radius: 10px;
   flex-direction: column;
-  max-width: 800px;
-  margin: auto auto;
+  margin: auto 20px;
 }
 
 .h1 {
@@ -34,8 +32,9 @@
 }
 
 .stars {
-  content: "e";
+  content: "";
   background: transparent;
+  filter: drop-shadow(0px 0px 1px #ffffff);
   box-shadow: 1744px 122px #fff, 134px 1321px #fff, 92px 859px #fff,
     235px 1045px #fff, 366px 912px #fff, 491px 942px #fff, 14px 1831px #fff,
     582px 476px #fff, 588px 1230px #fff, 1520px 1343px #fff, 1671px 203px #fff,
@@ -217,7 +216,7 @@
 .stars:after {
   content: " ";
   position: absolute;
-  top: 2000px;
+  /* top: 2000px; */
   width: 1px;
   height: 1px;
   background: transparent;
@@ -403,6 +402,8 @@
   width: 2px;
   height: 2px;
   background: transparent;
+  border-radius: 50%;
+  filter: drop-shadow(0px 0px 1px #ffffff);
   box-shadow: 1907px 1575px #fff, 893px 268px #fff, 1819px 666px #fff,
     366px 1985px #fff, 1736px 1062px #fff, 1124px 45px #fff, 905px 1674px #fff,
     1570px 711px #fff, 255px 1747px #fff, 147px 1032px #fff, 865px 1813px #fff,
@@ -459,7 +460,7 @@
 .stars2:after {
   content: " ";
   position: absolute;
-  top: 2000px;
+  /* top: 2000px; */
   width: 2px;
   height: 2px;
   background: transparent;
@@ -520,6 +521,8 @@
   width: 3px;
   height: 3px;
   background: transparent;
+  filter: drop-shadow(0px 0px 1px #ffffff);
+  border-radius: 50%;
   box-shadow: 1994px 1692px #fff, 961px 1928px #fff, 819px 1320px #fff,
     1899px 52px #fff, 28px 1937px #fff, 157px 88px #fff, 860px 1909px #fff,
     720px 427px #fff, 1319px 1469px #fff, 677px 960px #fff, 1265px 1181px #fff,
@@ -548,7 +551,7 @@
     1528px 1050px #fff;
   animation: animStar 150s linear infinite;
 }
-.stars3:after {
+/* .stars3:after {
   content: "e ";
   position: absolute;
   top: 2000px;
@@ -579,13 +582,13 @@
     1948px 303px #fff, 1889px 252px #fff, 1114px 1400px #fff, 759px 646px #fff,
     222px 571px #fff, 1908px 1401px #fff, 1856px 1204px #fff, 338px 1645px #fff,
     1528px 1050px #fff;
-}
+} */
 
 @keyframes animStar {
   from {
     transform: translateY(0px);
   }
   to {
-    transform: translateY(-2000px);
+    transform: translateY(-100px);
   }
 }
