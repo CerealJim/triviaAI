@@ -22,10 +22,11 @@ export default function Home() {
       <div className={styles.stars2}></div>
       <div className={styles.stars3}></div>
       <div className={styles.layout}>
-        <header className={styles.header}></header>
+        <header className={styles.header}>
+          <h1 className={styles.h1}>AI Trivia Generator</h1>
+        </header>
         <main className={styles.main}>
           <div className={styles.content}>
-            <h1 className={styles.h1}>AI Trivia Generator</h1>
             <TriviaForm />
           </div>
         </main>

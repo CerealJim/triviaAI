@@ -37,27 +37,34 @@ const TriviaQuiz: React.FC<TriviaDataProps> = ({ quizData = [] }) => {
   };
 
   return (
-    <div>
-      {quizData.map((question, index) => (
-        <div key={index}>
-          <TriviaQuestion
-            question={question.question}
-            options={question.options || []}
-            answer={question.answer}
-            onOptionSelect={(selectedOption) =>
-              handleAnswerSelect(selectedOption, index)
-            }
-          />
-        </div>
-      ))}
-      <div>
-        <button onClick={handleQuizSubmit}>Submit</button>
-      </div>
-      {submitted && (
+    <div className={styles.quizContainer}>
+      <div className={styles.quiz}>
+        {quizData.map((question, index) => (
+          <div key={index}>
+            <TriviaQuestion
+              question={question.question}
+              options={question.options || []}
+              answer={question.answer}
+              onOptionSelect={(selectedOption) =>
+                handleAnswerSelect(selectedOption, index)
+              }
+            />
+          </div>
+        ))}
         <div>
-          <p>Your score: {calculateScore()}</p>
+          <button
+            className={styles.quizSubmitButton}
+            onClick={handleQuizSubmit}
+          >
+            Submit
+          </button>
         </div>
-      )}
+        {submitted && (
+          <div>
+            <p className={styles.quizScore}>Your score: {calculateScore()}</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

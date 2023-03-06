@@ -18,9 +18,10 @@ const TriviaForm: React.FC = () => {
   const [triviaQuizProps, setTriviaQuizProps] = useState<TriviaQuizProps[]>([]);
 
   // State for difficulty and topic
-  const [difficulty, setDifficulty] = useState("");
+  const [difficulty, setDifficulty] = useState("easy");
   const [topic, setTopic] = useState("");
-
+  // const [showQuestions, setShowQuestions] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
   // API handler using user responses
   const handleClick = async () => {
     setLoading(true);
@@ -57,11 +58,13 @@ const TriviaForm: React.FC = () => {
 
     // setResponse({ data: json.choices[0].text, success: true });
     setLoading(false);
+    setFormSubmitted(true);
   };
 
   const handleDifficultyChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
+    console.log(difficulty, event.target.value);
     setDifficulty(event.target.value);
   };
 
@@ -69,56 +72,62 @@ const TriviaForm: React.FC = () => {
     setTopic(event.target.value);
   };
 
+  const handleFormSubmitted = () => {
+    setFormSubmitted(false);
+  };
+
   return (
     <div>
-      <div className={styles.form}>
-        <div className={styles.userInput}>
-          <label className={styles.label}>Difficulty:</label>
-          <select
-            value={difficulty}
-            onChange={handleDifficultyChange}
-            className={styles.select}
-            required // added required attribute
-          >
-            <option value="" disabled>
-              Select Difficulty
-            </option>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
+      {formSubmitted ? (
+        <div className={styles.formDataContainer}>
+          <div className={styles.formData}>
+            <p>Topic: {topic}</p>
+            <p>Difficulty: {difficulty}</p>
+            <button className={styles.userStart} onClick={handleFormSubmitted}>
+              Back to setup
+            </button>
+          </div>
         </div>
-        <div className={styles.userInput}>
-          <label className={styles.label}>Topic:</label>
+      ) : (
+        <div className={styles.formContainer}>
+          <div className={styles.form}>
+            <h2 className={styles.formTitle}>Setup Quiz</h2>
+            <div className={styles.userInput}>
+              <label className={styles.label}>Enter Topic</label>
 
-          <input
-            type="text"
-            value={topic}
-            onChange={handleTopicChange}
-            placeholder="Enter a topic"
-            maxLength={20}
-            className={styles.input}
-            required // added required attribute
-          />
+              <input
+                type="text"
+                value={topic}
+                onChange={handleTopicChange}
+                placeholder="Enter a topic"
+                maxLength={50}
+                className={styles.input}
+              />
+            </div>
+            <div className={styles.userInput}>
+              <label className={styles.label}>Select Difficulty</label>
+              <select
+                value={difficulty}
+                onChange={handleDifficultyChange}
+                className={styles.select}
+              >
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+            <button className={styles.userStart} onClick={handleClick}>
+              Start
+            </button>
+          </div>
         </div>
-        <button className={styles.userStart} onClick={handleClick}>
-          Start
-        </button>
-      </div>
+      )}
       <div>
         {loading ? (
           <p>Loading...</p>
-        ) : triviaQuizProps.length > 0 ? (
+        ) : triviaQuizProps.length > 0 && formSubmitted ? (
           <TriviaQuiz quizData={triviaQuizProps} />
-        ) : // triviaQuizProps.map((quizData: TriviaQuizProps, index: number) => (
-        // <TriviaQuiz
-        //   key={index}
-        //   question={quizData.question}
-        //   options={quizData.options ? quizData.options : []}
-        //   answer={quizData.answer}
-        // />
-        // ))
-        null}
+        ) : null}
       </div>
     </div>
   );

@@ -40,7 +40,6 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
               value={option}
               checked={selectedOption === option}
               onChange={handleOptionChange}
-              // className={styles.input}
               className={`${styles.customRadio}`}
             />
             <label htmlFor={option} className={styles.label}>
