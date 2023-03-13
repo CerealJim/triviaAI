@@ -222,9 +222,29 @@ html {
   overflow: hidden;
 }
 
+/* HTML styles */
 html {
-  height: 100%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 0%);
+  min-height: 100%;
+  background: radial-gradient(ellipse at top, #1b2735e4 0%, #090a0f 100%);
+  animation: bg-effect 7s linear infinite;
+  background-repeat: no-repeat;
 }
 
-/* text color */
+/* Animations */
+@keyframes bg-effect {
+  0% {
+    background-size: 100% 100%;
+  }
+  25% {
+    background-size: 100% 110%;
+  }
+  50% {
+    background-size: 100% 100%;
+  }
+  75% {
+    background-size: 100% 105%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
+}

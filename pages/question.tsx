@@ -7,12 +7,15 @@ interface TriviaQuestionProps {
   options?: string[];
   answer: string;
   onOptionSelect: (selectedOption: string) => void;
+  showAnswers: boolean;
 }
 
 const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
   question,
   options = [],
   onOptionSelect,
+  answer,
+  showAnswers,
 }) => {
   const [selectedOption, setSelectedOption] = useState("");
   const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,9 +31,16 @@ const TriviaQuestion: React.FC<TriviaQuestionProps> = ({
         {options.map((option, index) => (
           <div
             key={index}
-            className={`${styles.option} ${
-              selectedOption === option ? styles.selectedOption : ""
-            }`}
+            className={`${styles.option} 
+              ${selectedOption === option ? styles.selectedOption : ""}
+              ${
+                showAnswers && option === answer
+                  ? styles.correct
+                  : showAnswers && option !== answer
+                  ? styles.incorrect
+                  : ""
+              }
+              `}
           >
             <span className={styles.optionLetter}>{optionLetter[index]}</span>
             <input

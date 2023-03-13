@@ -53,3 +53,37 @@
 .customRadio:hover {
   cursor: pointer;
 }
+
+.correct:not(.selectedOption) {
+  color: green;
+}
+.correct:not(.selectedOption):after {
+  position: absolute;
+  left: -25px;
+  content: "";
+  background-image: url("../public/check-mark15.png");
+  width: 15px;
+  height: 15px;
+}
+.selectedOption.correct {
+  color: green;
+}
+.selectedOption.correct:after {
+  position: absolute;
+  left: -25px;
+  content: "";
+  background-image: url("../public/check-mark15.png");
+  width: 15px;
+  height: 15px;
+}
+.selectedOption.incorrect {
+  color: red;
+}
+.selectedOption.incorrect:after {
+  position: absolute;
+  left: -25px;
+  content: "";
+  background-image: url("../public/cross-mark15.png");
+  width: 15px;
+  height: 15px;
+}

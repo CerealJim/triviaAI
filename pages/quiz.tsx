@@ -34,36 +34,42 @@ const TriviaQuiz: React.FC<TriviaDataProps> = ({ quizData = [] }) => {
 
   const handleQuizSubmit = () => {
     setSubmitted(true);
+    window.scrollTo(0, 0);
   };
 
   return (
-    <div className={styles.quizContainer}>
-      <div className={styles.quiz}>
-        {quizData.map((question, index) => (
-          <div key={index}>
-            <TriviaQuestion
-              question={question.question}
-              options={question.options || []}
-              answer={question.answer}
-              onOptionSelect={(selectedOption) =>
-                handleAnswerSelect(selectedOption, index)
-              }
-            />
-          </div>
-        ))}
+    <div>
+      {submitted && (
         <div>
-          <button
-            className={styles.quizSubmitButton}
-            onClick={handleQuizSubmit}
-          >
-            Submit
-          </button>
+          <p className={styles.quizScore}>Your score: {calculateScore()}</p>
         </div>
-        {submitted && (
-          <div>
-            <p className={styles.quizScore}>Your score: {calculateScore()}</p>
-          </div>
-        )}
+      )}
+      <div className={styles.quizContainer}>
+        <div className={styles.quiz}>
+          {quizData.map((question, index) => (
+            <div key={index}>
+              <TriviaQuestion
+                question={question.question}
+                options={question.options || []}
+                answer={question.answer}
+                onOptionSelect={(selectedOption) =>
+                  handleAnswerSelect(selectedOption, index)
+                }
+                showAnswers={submitted} // pass the submitted state variable to show answers
+              />
+            </div>
+          ))}
+          {!submitted && (
+            <div>
+              <button
+                className={styles.quizSubmitButton}
+                onClick={handleQuizSubmit}
+              >
+                Submit
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

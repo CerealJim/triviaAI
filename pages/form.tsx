@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import TriviaQuiz from "./quiz";
 import styles from "@/styles/Form.module.css";
 import { TriviaQuizProps } from "../types/triviaQueston";
+import * as Loader from "react-loader-spinner";
 
 interface OpenAIAPIResponse {
   data: string;
@@ -32,7 +33,7 @@ const TriviaForm: React.FC = () => {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        prompt: `Give me 2 ${difficulty} trivia questions about ${topic} with 4 options and their answer in a json array format`,
+        prompt: `Give me 5 ${difficulty} trivia questions about ${topic} with 4 options and their answer in a json array format`,
         model: "text-davinci-003",
         temperature: 0,
         top_p: 1,
@@ -64,7 +65,6 @@ const TriviaForm: React.FC = () => {
   const handleDifficultyChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    console.log(difficulty, event.target.value);
     setDifficulty(event.target.value);
   };
 
@@ -116,15 +116,31 @@ const TriviaForm: React.FC = () => {
                 <option value="hard">Hard</option>
               </select>
             </div>
-            <button className={styles.userStart} onClick={handleClick}>
-              Start
-            </button>
+            {loading ? (
+              <button className={styles.userStartLoading} onClick={handleClick}>
+                Start
+              </button>
+            ) : (
+              <button className={styles.userStart} onClick={handleClick}>
+                Start
+              </button>
+            )}
           </div>
         </div>
       )}
       <div>
         {loading ? (
-          <p>Loading...</p>
+          <span className="loadingSpin">
+            <div>
+              <Loader.RotatingLines
+                strokeColor="white"
+                strokeWidth="4"
+                animationDuration="1.5"
+                width="96"
+                visible={true}
+              />
+            </div>
+          </span>
         ) : triviaQuizProps.length > 0 && formSubmitted ? (
           <TriviaQuiz quizData={triviaQuizProps} />
         ) : null}
