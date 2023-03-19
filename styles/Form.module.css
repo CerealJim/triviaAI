@@ -99,7 +99,7 @@
   margin: auto auto 30px;
 }
 
-.loadingSpin span {
+.loadingSpin {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -119,6 +119,9 @@
   }
   .form {
     width: 100%;
+  }
+  .formData {
+    flex-direction: column-reverse;
   }
 }
 

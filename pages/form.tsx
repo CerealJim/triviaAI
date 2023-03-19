@@ -51,7 +51,7 @@ const TriviaForm: React.FC = () => {
       const parsedTrivia: TriviaQuizProps[] = JSON.parse(
         chatGptAnswer
       ) as TriviaQuizProps[];
-      console.log(parsedTrivia);
+      // console.log(parsedTrivia);
       setTriviaQuizProps(parsedTrivia);
     } catch (error) {
       console.error("error parsing chatgpt response");
@@ -130,7 +130,7 @@ const TriviaForm: React.FC = () => {
       )}
       <div>
         {loading ? (
-          <span className="loadingSpin">
+          <span className={styles.loadingSpin}>
             <div>
               <Loader.RotatingLines
                 strokeColor="white"
