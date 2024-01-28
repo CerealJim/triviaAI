@@ -33,25 +33,26 @@ const TriviaForm: React.FC = () => {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        prompt: `Give me 5 ${difficulty} trivia questions about ${topic} with 4 options and their answer in a json array format`,
-        model: "text-davinci-003",
+        prompt: `Give me 3 ${difficulty} trivia questions about ${topic} with 4 options and their answer only in a json array format`,
+        // model: "text-davinci-003",
+        model: "gpt-3.5-turbo-instruct",
         temperature: 0,
         top_p: 1,
-        max_tokens: 2000,
+        max_tokens: 350,
         frequency_penalty: 0,
         presence_penalty: 0,
       }),
     });
 
     const json = await result.json();
-    // console.log(json);
+    console.log(json, "json");
 
     try {
       const chatGptAnswer = json.choices[0].text;
       const parsedTrivia: TriviaQuizProps[] = JSON.parse(
         chatGptAnswer
       ) as TriviaQuizProps[];
-      // console.log(parsedTrivia);
+      console.log(parsedTrivia, "parsed json");
       setTriviaQuizProps(parsedTrivia);
     } catch (error) {
       console.error("error parsing chatgpt response");
