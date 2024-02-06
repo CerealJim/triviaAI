@@ -61,7 +61,8 @@
   position: absolute;
   left: -25px;
   content: "";
-  background-image: url("../public/check-mark15.png");
+  /* background-image: url("../public/check-mark15.png"); */
+  background-image: url("../../../public/check-mark15.png");
   width: 15px;
   height: 15px;
 }
@@ -72,7 +73,8 @@
   position: absolute;
   left: -25px;
   content: "";
-  background-image: url("../public/check-mark15.png");
+  /* background-image: url("../public/check-mark15.png"); */
+  background-image: url("../../../public/check-mark15.png");
   width: 15px;
   height: 15px;
 }
@@ -83,7 +85,8 @@
   position: absolute;
   left: -25px;
   content: "";
-  background-image: url("../public/cross-mark15.png");
+  /* background-image: url("../public/cross-mark15.png"); */
+  background-image: url("../../../public/cross-mark15.png");
   width: 15px;
   height: 15px;
 }

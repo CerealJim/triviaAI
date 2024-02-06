@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "@/styles/Quiz.module.css";
+import styles from ".././styles/Quiz.module.css";
 import TriviaQuestion from "./question";
 import { TriviaQuizData } from "../types/triviaQueston";
 

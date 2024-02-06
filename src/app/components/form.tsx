@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import TriviaQuiz from "./quiz";
-import styles from "@/styles/Form.module.css";
+import styles from ".././styles/Form.module.css";
 import { TriviaQuizProps } from "../types/triviaQueston";
 import * as Loader from "react-loader-spinner";
 

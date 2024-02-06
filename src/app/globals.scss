@@ -1,3 +1,15 @@
+// SCSS for custom styling
+
+$primary-color: #64ff00;
+$light-color: #fff;
+$background-dark: radial-gradient(ellipse at top, #1b2735e4 0%, #090a0f 100%);
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -17,6 +29,9 @@ section {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  color: $light-color;
+  text-align: center;
+  margin-bottom: 30px;
 }
 figcaption,
 figure,
@@ -225,26 +240,8 @@ html {
 /* HTML styles */
 html {
   min-height: 100%;
-  background: radial-gradient(ellipse at top, #1b2735e4 0%, #090a0f 100%);
+  background: $background-dark;
   animation: bg-effect 7s linear infinite;
   background-repeat: no-repeat;
-}
-
-/* Animations */
-@keyframes bg-effect {
-  0% {
-    background-size: 100% 100%;
-  }
-  25% {
-    background-size: 100% 110%;
-  }
-  50% {
-    background-size: 100% 100%;
-  }
-  75% {
-    background-size: 100% 105%;
-  }
-  100% {
-    background-size: 100% 100%;
-  }
+  // color: $light-color;
 }
