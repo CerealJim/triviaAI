@@ -6,13 +6,13 @@ import LogoutButton from "./components/LogoutButton";
 import Link from "next/link";
 import SessionProvider from "./components/SessionProvider";
 import NavMenu from "./components/NavMenu";
-import styles from "./styles/Home.module.scss";
+// import styles from "./styles/Home.module.scss";
 import TriviaForm from "./components/form";
 
 // Default function representing the home page
 export default async function Home() {
   // Retrieve the user's session on the server side
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
 
   return (
     // Main content container with defined styless
@@ -38,7 +38,7 @@ export default async function Home() {
           </button>
         </div>
       )} */}
-      <TriviaForm />
+      {/* <TriviaForm /> */}
     </main>
   );
 }
