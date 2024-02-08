@@ -12,7 +12,7 @@ import TriviaForm from "./components/form";
 // Default function representing the home page
 export default async function Home() {
   // Retrieve the user's session on the server side
-  // const session = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
   return (
     // Main content container with defined styless
@@ -25,9 +25,14 @@ export default async function Home() {
       </SessionProvider> */}
 
       {/* Conditional rendering based on session information: If the user is authenticated, display a welcome message and logout button. Otherwise, prompt the user to login.*/}
-      {/* {session && session.user ? (
+
+      <div>
+        <p>This is a public route</p>
+      </div>
+
+      {session && session.user ? (
         <div>
-          <h2>Welcome {`${session.user.name}`}</h2>
+          <h2>Welcome {`${session.user.name}`}. You are logged in</h2>
           <LogoutButton />
         </div>
       ) : (
@@ -37,7 +42,7 @@ export default async function Home() {
             <Link href="/auth">Login</Link>
           </button>
         </div>
-      )} */}
+      )}
       {/* <TriviaForm /> */}
     </main>
   );
