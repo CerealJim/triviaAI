@@ -1,4 +1,4 @@
-import SignInWithGithub from "@/app/components/SignInWithGithub";
+// import SignInWithGithub from "@/app/components/SignInWithGithub";
 import SignInForm from "@/app/components/SignInForm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
@@ -16,7 +16,6 @@ export default async function AuthRoute() {
       <div className="">
         <SignInForm />
       </div>
-      {/* <SignInWithGithub /> */}
     </div>
   );
 }

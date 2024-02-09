@@ -1,5 +1,5 @@
 // import type { NextAuthOptions } from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
+// import GitHubProvider from "next-auth/providers/github";
 import EmailProvider from "next-auth/providers/email";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "./db";
@@ -13,10 +13,10 @@ export const authOptions: AuthOptions = {
   // using Github provider: https://next-auth.js.org/providers/github
   adapter: PrismaAdapter(prisma),
   providers: [
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID ?? "",
-      clientSecret: process.env.GITHUB_SECRET_ID ?? "",
-    }),
+    // GitHubProvider({
+    //   clientId: process.env.GITHUB_ID ?? "",
+    //   clientSecret: process.env.GITHUB_SECRET_ID ?? "",
+    // }),
     EmailProvider({
       server: {
         host: process.env.EMAIL_SERVER_HOST,
