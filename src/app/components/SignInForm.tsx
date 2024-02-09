@@ -12,9 +12,10 @@ export default function SignInForm() {
       callbackUrl: `${window.location.origin}`,
       // redirect: false,
     });
+    console.log(signInResult);
   }
   return (
-    <form onSubmit={SignInWithEmail}>
+    <form action={SignInWithEmail}>
       <div className="">
         <label>Email</label>
         <input

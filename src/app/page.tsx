@@ -18,7 +18,7 @@ export default async function Home() {
       <h1>Trivia AI</h1>
 
       <div>
-        <p>This is a public route</p>
+        <p>Hello 😎</p>
       </div>
 
       {session && session.user ? (
