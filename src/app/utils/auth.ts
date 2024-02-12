@@ -13,12 +13,8 @@ type AuthOptions = {
 export const authOptions: AuthOptions = {
   // using Github provider: https://next-auth.js.org/providers/github
   adapter: PrismaAdapter(prisma),
-  secret: process.env.NEXTAUTH_SECRET,
+  // secret: process.env.NEXTAUTH_SECRET,
   providers: [
-    // GitHubProvider({
-    //   clientId: process.env.GITHUB_ID ?? "",
-    //   clientSecret: process.env.GITHUB_SECRET_ID ?? "",
-    // }),
     EmailProvider({
       server: {
         host: process.env.EMAIL_SERVER_HOST,

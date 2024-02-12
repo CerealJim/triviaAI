@@ -1,11 +1,7 @@
-// import Image from "next/image";
-// import styles from "./page.module.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./utils/auth";
 import LogoutButton from "./components/LogoutButton";
 import Link from "next/link";
-import SessionProvider from "./components/SessionProvider";
-import TriviaForm from "./components/form";
 
 // Default function representing the home page
 export default async function Home() {

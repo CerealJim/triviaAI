@@ -1,6 +1,6 @@
 /* Tailwind CSS - for quick styling */
 
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -8,4 +8,13 @@
   .text-balance {
     text-wrap: balance;
   }
-} */
+}
+
+@layer base {
+  h1 {
+    @apply font-bold;
+  }
+  a {
+    @apply underline font-bold;
+  }
+}
