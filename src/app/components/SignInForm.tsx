@@ -7,11 +7,11 @@ export default function SignInForm() {
 
   // async function SignInWithEmail(e: React.FormEvent) {
   async function SignInWithEmail() {
-    const signInResult = await signIn("email", {
-      email: email,
-      callbackUrl: `${window.location.origin}`,
-      // redirect: false,
-    });
+    const param = {
+      email,
+      // callbackUrl: `${window.location.origin}`,
+    };
+    const signInResult = await signIn("email", param);
     console.log(signInResult);
   }
   return (

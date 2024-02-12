@@ -6,12 +6,14 @@ import prisma from "./db";
 
 type AuthOptions = {
   adapter: object;
+  secret?: string;
   providers: Array<any>; // Bad practice - need to get more type specific
 };
 
 export const authOptions: AuthOptions = {
   // using Github provider: https://next-auth.js.org/providers/github
   adapter: PrismaAdapter(prisma),
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     // GitHubProvider({
     //   clientId: process.env.GITHUB_ID ?? "",
