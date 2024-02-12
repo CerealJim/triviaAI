@@ -5,8 +5,6 @@ import { authOptions } from "./utils/auth";
 import LogoutButton from "./components/LogoutButton";
 import Link from "next/link";
 import SessionProvider from "./components/SessionProvider";
-import NavMenu from "./components/NavMenu";
-import styles from "./styles/Home.module.scss";
 import TriviaForm from "./components/form";
 
 // Default function representing the home page
@@ -19,15 +17,13 @@ export default async function Home() {
     <main>
       <h1>Trivia AI</h1>
 
-      {/* SessionProvider: Provides the session information to its child components, ensuring they can access the authentication state. SessionProvider is required for NavMenu component. */}
-      {/* <SessionProvider session={session}>
-        <NavMenu />
-      </SessionProvider> */}
+      <div>
+        <p>Hello 😎</p>
+      </div>
 
-      {/* Conditional rendering based on session information: If the user is authenticated, display a welcome message and logout button. Otherwise, prompt the user to login.*/}
-      {/* {session && session.user ? (
+      {session && session.user ? (
         <div>
-          <h2>Welcome {`${session.user.name}`}</h2>
+          <h2>Welcome {`${session.user.name}`}. You are logged in</h2>
           <LogoutButton />
         </div>
       ) : (
@@ -37,8 +33,8 @@ export default async function Home() {
             <Link href="/auth">Login</Link>
           </button>
         </div>
-      )} */}
-      <TriviaForm />
+      )}
+      {/* <TriviaForm /> */}
     </main>
   );
 }

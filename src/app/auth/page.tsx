@@ -1,4 +1,5 @@
-import SignInWithGithub from "@/app/components/SignInWithGithub";
+// import SignInWithGithub from "@/app/components/SignInWithGithub";
+import SignInForm from "@/app/components/SignInForm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
 import { redirect } from "next/navigation";
@@ -9,10 +10,11 @@ export default async function AuthRoute() {
     return redirect("/");
   }
   return (
-    <div>
+    <div className="">
       <h2>Please Sign In</h2>
-      <div>
-        <SignInWithGithub />
+      <p>to access the private page you have to be authenticated</p>
+      <div className="">
+        <SignInForm />
       </div>
     </div>
   );
