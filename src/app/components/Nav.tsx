@@ -9,13 +9,17 @@ const Nav = async () => {
   return (
     <header className="bg-grey-600 text-grey-100">
       <nav className="flex justify-between items center w-full px-10 py-4">
-        <div>Trivia-Nav</div>
+        <div className="">Trivia AI</div>
         <div className="flex gap-10">
-          <Link href="/">Home</Link>
+          <Link href="/" className="">
+            Home
+          </Link>
           {session && session.user ? (
             <LogoutButton />
           ) : (
-            <Link href="/auth">Login</Link>
+            <Link href="/auth" className="">
+              Login
+            </Link>
           )}
         </div>
       </nav>
