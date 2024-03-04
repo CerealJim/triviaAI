@@ -34,7 +34,7 @@ const TriviaForm: React.FC = () => {
         Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        prompt: `Give me 3 ${difficulty} trivia questions about ${topic} with 4 options and their answer only in a json array format`,
+        prompt: `Give me 3 ${difficulty} trivia questions about ${topic} with 4 options, and their answer, only in a json array format, not a string`,
         // model: "text-davinci-003",
         model: "gpt-3.5-turbo-instruct",
         temperature: 0,
@@ -93,7 +93,7 @@ const TriviaForm: React.FC = () => {
       ) : (
         <div className={styles.formContainer}>
           <div className={styles.form}>
-            <h2 className={styles.formTitle}>Setup Quiz</h2>
+            <h2 className={styles.formTitle}>Setup</h2>
             <div className={styles.userInput}>
               <label className={styles.label}>Enter Topic</label>
 
@@ -135,7 +135,7 @@ const TriviaForm: React.FC = () => {
           <span className={styles.loadingSpin}>
             <div>
               <Loader.RotatingLines
-                strokeColor="white"
+                strokeColor="black"
                 strokeWidth="4"
                 animationDuration="1.5"
                 width="96"
