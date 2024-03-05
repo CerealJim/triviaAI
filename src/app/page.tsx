@@ -12,28 +12,26 @@ export default async function Home() {
 
   return (
     // Main content container with defined styless
-    <>
-      <main className={styles.main}>
-        <h1>Trivia AI</h1>
+    <main className={styles.main}>
+      <h1>Trivia AI</h1>
 
-        <div>{/* <p>Hello 😎</p> */}</div>
+      <div>{/* <p>Hello 😎</p> */}</div>
 
-        {session && session.user ? (
-          <div>
-            {/* <h2>Welcome {`${session.user.name}`}. You are logged in</h2> */}
-            {/* <LogoutButton /> */}
-            <TriviaForm />
-          </div>
-        ) : (
-          <div>
-            <h2>Please login</h2>
-            <button>
-              <Link href="/auth">Login</Link>
-            </button>
-          </div>
-        )}
-        {/* <TriviaForm /> */}
-      </main>
-    </>
+      {session && session.user ? (
+        <div>
+          {/* <h2>Welcome {`${session.user.name}`}. You are logged in</h2> */}
+          {/* <LogoutButton /> */}
+          <TriviaForm />
+        </div>
+      ) : (
+        <div>
+          <h2>Please login</h2>
+          <button>
+            <Link href="/auth">Login</Link>
+          </button>
+        </div>
+      )}
+      {/* <TriviaForm /> */}
+    </main>
   );
 }
