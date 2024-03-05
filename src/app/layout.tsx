@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={styles.layout}>
         <Nav />
-        <div className="m-2 mb-auto">{children}</div>
+        <div className={styles.layoutMain}>{children}</div>
         <Footer />
       </body>
     </html>

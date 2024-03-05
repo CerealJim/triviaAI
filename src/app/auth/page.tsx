@@ -3,6 +3,7 @@ import SignInForm from "@/app/components/SignInForm";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../utils/auth";
 import { redirect } from "next/navigation";
+import styles from "../styles/AuthRoute.module.scss";
 
 export default async function AuthRoute() {
   const session = await getServerSession(authOptions);
@@ -10,11 +11,15 @@ export default async function AuthRoute() {
     return redirect("/");
   }
   return (
-    <div className="">
-      <h2>Please Sign In</h2>
-      <p>to access the private page you have to be authenticated</p>
-      <div className="">
-        <SignInForm />
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <h2 className={styles.title}>Sign In</h2>
+        <p className={styles.subtitle}>
+          To access the the dashboard, you have to be authenticated.
+        </p>
+        <div className={styles.signInForm}>
+          <SignInForm />
+        </div>
       </div>
     </div>
   );
